@@ -1,67 +1,177 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth bg-[#030303]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShiftTools | Outillage Technique & Atelier — Stock France</title>
+    <title>ShiftTools | L'ingénierie d'atelier, expédiée de France.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { zinc: { 850: '#1f2023', 900: '#18181b', 950: '#09090b' }, brand: { 600: '#2563eb' } }
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { brand: { 500: '#2563eb' } }
                 }
             }
         }
     </script>
+    <style>
+        /* Grille très subtile pour l'effet technique */
+        .bg-mesh {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+            -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+        }
+    </style>
 </head>
-<body class="bg-zinc-50 text-zinc-900 font-sans antialiased">
+<body class="text-neutral-300 font-sans antialiased relative min-h-screen">
 
-    <!-- Bannière Logistique -->
-    <div class="bg-zinc-950 text-zinc-200 text-xs font-semibold tracking-wider text-center py-2.5 px-4 flex items-center justify-center gap-2 border-b border-zinc-800">
-        <span>🇫🇷</span>
-        <span>Expédition directe depuis nos entrepôts en France • Livraison express en 48H</span>
-    </div>
+    <div class="fixed inset-0 z-[-1] bg-mesh pointer-events-none"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[80%] h-[500px] bg-brand-500/10 blur-[150px] rounded-full pointer-events-none z-[-1]"></div>
 
-    <!-- Navigation -->
-    <nav class="sticky w-full z-40 top-0 bg-white/90 backdrop-blur-md border-b border-zinc-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-black tracking-tight text-zinc-950">
-                Shift<span class="text-brand-600">Tools.</span>
+    <!-- Navigation Ultra-Minimaliste (sans fond plein) -->
+    <nav class="w-full pt-8 pb-4 z-50">
+        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-white">
+                Shift<span class="text-brand-500">Tools.</span>
             </a>
-            <div class="hidden md:flex gap-8 text-sm font-semibold text-zinc-600">
-                <a href="index.html" class="text-zinc-950">Accueil</a>
-                <a href="catalogue.html" class="hover:text-zinc-950 transition-colors">Catalogue</a>
-                <a href="login.html" class="hover:text-zinc-950 transition-colors">Espace Client</a>
+            <div class="hidden md:flex gap-10 text-sm font-medium text-neutral-400">
+                <a href="catalogue.html" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="login.html" class="hover:text-white transition-colors">Espace Client</a>
             </div>
-            <a href="panier.html" class="flex items-center gap-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
-                <span>Panier</span>
+            <a href="panier.html" class="font-mono text-sm text-white hover:text-brand-500 transition-colors">
+                [ PANIER: 0 ]
             </a>
         </div>
     </nav>
 
-    <!-- Héro -->
-    <header class="pt-20 pb-20 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-600/10 px-3.5 py-1.5 rounded-full">Matériel d'Atelier Professionnel</span>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-zinc-950 mt-6 mb-6 leading-tight">
-                L'outillage technique rigoureusement sélectionné.
+    <!-- Héro : Typographie Géante & Fluide -->
+    <header class="pt-32 pb-20 max-w-6xl mx-auto px-6">
+        <div class="max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-[1.05] mb-8">
+                Outillage brut.<br>
+                Zéro <span class="text-neutral-600">attente.</span>
             </h1>
-            <p class="text-zinc-600 text-lg font-normal leading-relaxed mb-8">
-                Zéro intermédiaire, zéro délai lointain. Tous nos produits sont en stock dans notre centre logistique en France et expédiés sous 24h.
+            <p class="text-xl md:text-2xl text-neutral-400 font-light leading-relaxed max-w-2xl mb-12">
+                Conçu pour résoudre les problèmes d'atelier. Stocké en France. Livré entre vos mains en 48 heures.
             </p>
-            <div class="flex gap-4">
-                <a href="catalogue.html" class="bg-zinc-950 hover:bg-zinc-800 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all">
-                    Découvrir le catalogue
-                </a>
-            </div>
-        </div>
-        <div class="bg-zinc-200 rounded-3xl aspect-square flex items-center justify-center text-zinc-400 font-bold border border-zinc-300">
-            [Visuel Atelier / Produits]
+            <a href="#catalogue" class="inline-flex items-center gap-3 bg-white text-black hover:bg-neutral-200 font-bold px-8 py-4 rounded-full transition-all">
+                Voir l'équipement
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
         </div>
     </header>
+
+    <!-- La Réassurance en ligne pure (Exit les boîtes, place à l'élégance des données) -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <div class="border-y border-white/10 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <span class="block font-mono text-xs text-brand-500 mb-2">01 // ORIGINE</span>
+                    <strong class="text-white text-lg block">Stock Français 🇫🇷</strong>
+                    <span class="text-neutral-500 text-sm mt-1 block">Entrepôt basé sur le territoire.</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-xs text-brand-500 mb-2">02 // VÉLOCITÉ</span>
+                    <strong class="text-white text-lg block">Expédition 24h</strong>
+                    <span class="text-neutral-500 text-sm mt-1 block">Remis au transporteur le jour même.</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-xs text-brand-500 mb-2">03 // FIABILITÉ</span>
+                    <strong class="text-white text-lg block">Garantie 2 ans</strong>
+                    <span class="text-neutral-500 text-sm mt-1 block">Testé pour un usage professionnel.</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-xs text-brand-500 mb-2">04 // SÉCURITÉ</span>
+                    <strong class="text-white text-lg block">Stripe Secured</strong>
+                    <span class="text-neutral-500 text-sm mt-1 block">Chiffrement bancaire de bout en bout.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogue "Annuaire" (Design brut, sans cartes) -->
+    <section id="catalogue" class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="text-3xl font-black text-white tracking-tight mb-12">Inventaire Actif</h2>
+
+        <div class="border-t border-white/10">
+            
+            <!-- Ligne Produit 1 -->
+            <a href="produit.html?id=1" class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-4 -mx-4 rounded-xl">
+                <div class="flex items-center gap-6">
+                    <div class="font-mono text-neutral-600 text-sm hidden md:block">01</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-brand-500 transition-colors">Scanner OBD2 Pro</h3>
+                        <p class="text-neutral-500 text-sm mt-1">Lecture trames CAN/K-Line • Effacement direct des défauts</p>
+                    </div>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center justify-between md:gap-12 w-full md:w-auto">
+                    <span class="bg-white/5 border border-white/10 text-neutral-300 font-mono text-xs px-3 py-1 rounded-full">En Stock</span>
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-bold text-white">34,90 €</span>
+                        <svg class="w-6 h-6 text-neutral-600 group-hover:text-brand-500 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Ligne Produit 2 -->
+            <a href="produit.html?id=2" class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-4 -mx-4 rounded-xl">
+                <div class="flex items-center gap-6">
+                    <div class="font-mono text-neutral-600 text-sm hidden md:block">02</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-brand-500 transition-colors">Kit Extraction Connecteurs</h3>
+                        <p class="text-neutral-500 text-sm mt-1">Acier fin trempé • Retrait des pins faisceaux sans casse</p>
+                    </div>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center justify-between md:gap-12 w-full md:w-auto">
+                    <span class="bg-white/5 border border-white/10 text-neutral-300 font-mono text-xs px-3 py-1 rounded-full">En Stock</span>
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-bold text-white">24,90 €</span>
+                        <svg class="w-6 h-6 text-neutral-600 group-hover:text-brand-500 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Ligne Produit 3 -->
+            <a href="produit.html?id=3" class="group flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-4 -mx-4 rounded-xl">
+                <div class="flex items-center gap-6">
+                    <div class="font-mono text-neutral-600 text-sm hidden md:block">03</div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-brand-500 transition-colors">Ruban Tissu Adhésif Moteur</h3>
+                        <p class="text-neutral-500 text-sm mt-1">Haute température • Finition d'origine constructeur</p>
+                    </div>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center justify-between md:gap-12 w-full md:w-auto">
+                    <span class="bg-white/5 border border-white/10 text-neutral-300 font-mono text-xs px-3 py-1 rounded-full">En Stock</span>
+                    <div class="flex items-center gap-6">
+                        <span class="text-xl font-bold text-white">14,90 €</span>
+                        <svg class="w-6 h-6 text-neutral-600 group-hover:text-brand-500 group-hover:translate-x-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer Typographique -->
+    <footer class="pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <a href="index.html" class="text-3xl font-black tracking-tighter text-white mb-6 inline-block">
+                Shift<span class="text-brand-500">Tools.</span>
+            </a>
+            <div class="flex justify-center gap-8 text-sm font-medium text-neutral-500 mb-12">
+                <a href="#" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                <a href="#" class="hover:text-white transition-colors">CGV</a>
+                <a href="#" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <p class="font-mono text-xs text-neutral-600">© 2026 ShiftTools. Entrepôts en France.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
