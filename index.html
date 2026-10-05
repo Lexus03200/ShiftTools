@@ -17,9 +17,9 @@
         }
     </script>
 </head>
-<body class="bg-zinc-50 text-zinc-900 font-sans antialiased selection:bg-brand-600 selection:text-white">
+<body class="bg-zinc-50 text-zinc-900 font-sans antialiased">
 
-    <!-- Bannière de réassurance logistique (Visibilité immédiate) -->
+    <!-- Bannière Logistique -->
     <div class="bg-zinc-950 text-zinc-200 text-xs font-semibold tracking-wider text-center py-2.5 px-4 flex items-center justify-center gap-2 border-b border-zinc-800">
         <span>🇫🇷</span>
         <span>Expédition directe depuis nos entrepôts en France • Livraison express en 48H</span>
@@ -32,191 +32,36 @@
                 Shift<span class="text-brand-600">Tools.</span>
             </a>
             <div class="hidden md:flex gap-8 text-sm font-semibold text-zinc-600">
-                <a href="index.html" class="text-zinc-950">Catalogue</a>
+                <a href="index.html" class="text-zinc-950">Accueil</a>
+                <a href="catalogue.html" class="hover:text-zinc-950 transition-colors">Catalogue</a>
                 <a href="login.html" class="hover:text-zinc-950 transition-colors">Espace Client</a>
             </div>
-            <button onclick="openCart()" class="flex items-center gap-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+            <a href="panier.html" class="flex items-center gap-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
                 <span>Panier</span>
-                <span id="cart-count" class="bg-zinc-950 text-white text-xs px-2 py-0.5 rounded-full">0</span>
-            </button>
+            </a>
         </div>
     </nav>
 
-    <!-- Héro Section : Confiance & Expertise -->
-    <header class="pt-16 pb-16 md:pt-24 md:pb-20 max-w-7xl mx-auto px-6">
-        <div class="max-w-3xl">
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-600/10 px-3.5 py-1.5 rounded-full">Équipement d'Atelier Professionnel</span>
+    <!-- Héro -->
+    <header class="pt-20 pb-20 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-600/10 px-3.5 py-1.5 rounded-full">Matériel d'Atelier Professionnel</span>
             <h1 class="text-4xl md:text-6xl font-black tracking-tight text-zinc-950 mt-6 mb-6 leading-tight">
                 L'outillage technique rigoureusement sélectionné.
             </h1>
-            <p class="text-zinc-600 text-lg md:text-xl font-normal leading-relaxed mb-8">
-                Zéro intermédiaire, zéro délai de livraison depuis l'étranger. Tous nos produits sont en stock dans notre centre logistique en France et expédiés sous 24h.
+            <p class="text-zinc-600 text-lg font-normal leading-relaxed mb-8">
+                Zéro intermédiaire, zéro délai lointain. Tous nos produits sont en stock dans notre centre logistique en France et expédiés sous 24h.
             </p>
+            <div class="flex gap-4">
+                <a href="catalogue.html" class="bg-zinc-950 hover:bg-zinc-800 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all">
+                    Découvrir le catalogue
+                </a>
+            </div>
         </div>
-
-        <!-- Blocs de Réassurance Rapide (Les 4 piliers de confiance) -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 pt-12 border-t border-zinc-200">
-            <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-zinc-900 text-white flex items-center justify-center flex-shrink-0 font-bold">1</div>
-                <div>
-                    <h3 class="font-bold text-zinc-950 text-sm">Stock Français</h3>
-                    <p class="text-xs text-zinc-500 mt-0.5">Aucune mauvaise surprise de douane ou de délai lointain.</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-zinc-900 text-white flex items-center justify-center flex-shrink-0 font-bold">2</div>
-                <div>
-                    <h3 class="font-bold text-zinc-950 text-sm">Expédition 48H</h3>
-                    <p class="text-xs text-zinc-500 mt-0.5">Colis soigné, suivi en temps réel directement chez vous.</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-zinc-900 text-white flex items-center justify-center flex-shrink-0 font-bold">3</div>
-                <div>
-                    <h3 class="font-bold text-zinc-950 text-sm">Garantie 2 Ans</h3>
-                    <p class="text-xs text-zinc-500 mt-0.5">Matériel testé et approuvé pour un usage intensif en atelier.</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded-xl bg-zinc-900 text-white flex items-center justify-center flex-shrink-0 font-bold">4</div>
-                <div>
-                    <h3 class="font-bold text-zinc-950 text-sm">Paiement Sécurisé</h3>
-                    <p class="text-xs text-zinc-500 mt-0.5">Transactions cryptées par Stripe (CB, Apple Pay).</p>
-                </div>
-            </div>
+        <div class="bg-zinc-200 rounded-3xl aspect-square flex items-center justify-center text-zinc-400 font-bold border border-zinc-300">
+            [Visuel Atelier / Produits]
         </div>
     </header>
 
-    <!-- Grille des Produits (Catalogue Multi-produits) -->
-    <main class="max-w-7xl mx-auto px-6 pb-24">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-2xl font-black tracking-tight text-zinc-950">Catalogue Disponible</h2>
-            <span class="text-sm font-semibold text-zinc-500">Stock mis à jour en temps réel</span>
-        </div>
-
-        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Injecté dynamiquement par JavaScript -->
-        </div>
-    </main>
-
-    <!-- Panier Latéral Coulissant -->
-    <div id="cart-overlay" class="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" onclick="closeCart()"></div>
-    <div id="cart-panel" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
-        <div class="p-6 border-b border-zinc-100 flex justify-between items-center bg-zinc-50">
-            <h2 class="text-xl font-black tracking-tight">Votre Panier</h2>
-            <button onclick="closeCart()" class="p-2 bg-white border border-zinc-200 hover:bg-zinc-100 rounded-full font-bold">✕</button>
-        </div>
-        <div class="flex-1 p-6 overflow-y-auto bg-white" id="cart-items">
-            <p class="text-zinc-500 text-center mt-12 font-medium">Votre panier est actuellement vide.</p>
-        </div>
-        <div class="p-6 border-t border-zinc-100 bg-zinc-50">
-            <div class="flex justify-between mb-4 font-bold text-zinc-950 text-lg">
-                <span>Total</span>
-                <span id="cart-total">0,00 €</span>
-            </div>
-            <a href="#" id="checkout-btn" class="block w-full bg-zinc-950 text-white text-center py-4 rounded-xl font-bold hover:bg-zinc-800 transition-colors opacity-50 pointer-events-none shadow-lg">
-                Procéder au paiement sécurisé
-            </a>
-            <p class="text-center text-xs text-zinc-400 mt-3">Expédié depuis nos locaux en France</p>
-        </div>
-    </div>
-
-    <!-- Footer Pro -->
-    <footer class="bg-white border-t border-zinc-200 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 mb-12 text-sm">
-            <div class="col-span-2">
-                <div class="text-xl font-black tracking-tight text-zinc-950 mb-4">Shift<span class="text-brand-600">Tools.</span></div>
-                <p class="text-zinc-500 w-3/4">L'équipement technique de précision sans compromis. Entrepôts et service client basés en France.</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-zinc-900 mb-4">Navigation</h4>
-                <ul class="space-y-3 text-zinc-500 font-medium">
-                    <li><a href="index.html" class="hover:text-zinc-900 transition-colors">Catalogue</a></li>
-                    <li><a href="login.html" class="hover:text-zinc-900 transition-colors">Espace Client</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-zinc-900 mb-4">Informations</h4>
-                <ul class="space-y-3 text-zinc-500 font-medium">
-                    <li><a href="#" class="hover:text-zinc-900 transition-colors">Mentions Légales</a></li>
-                    <li><a href="#" class="hover:text-zinc-900 transition-colors">Politique de retour (30 jours)</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-400 text-xs border-t border-zinc-100 pt-8">
-            &copy; 2026 ShiftTools. Tous droits réservés.
-        </div>
-    </footer>
-
-    <!-- Script Catalogue & Panier -->
-    <script>
-        const produits = [
-            {
-                id: 1,
-                nom: "Scanner OBD2 Professionnel",
-                desc: "Lecture des calculateurs, effacement des défauts et données en temps réel.",
-                prix: 34.90,
-                ancienPrix: 59.90,
-                image: "https://via.placeholder.com/600/f4f4f5/71717a?text=OBD2+Pro",
-                lienFiche: "produit.html?id=1"
-            },
-            {
-                id: 2,
-                nom: "Kit d'Extraction de Cosses Faisceau",
-                desc: "Jeu de clés en acier fin pour libérer proprement les pins et connecteurs.",
-                prix: 24.90,
-                ancienPrix: 39.90,
-                image: "https://via.placeholder.com/600/f4f4f5/71717a?text=Extracteur+Cosses",
-                lienFiche: "produit.html?id=2"
-            },
-            {
-                id: 3,
-                nom: "Ruban Tissu Adhésif Haute Température",
-                desc: "Finition d'origine constructeur pour la réfection des faisceaux moteur.",
-                prix: 14.90,
-                ancienPrix: 24.90,
-                image: "https://via.placeholder.com/600/f4f4f5/71717a?text=Ruban+Tissu",
-                lienFiche: "produit.html?id=3"
-            }
-        ];
-
-        const grid = document.getElementById('product-grid');
-        grid.innerHTML = produits.map(p => `
-            <div class="bg-white rounded-3xl border border-zinc-200 overflow-hidden flex flex-col justify-between group hover:border-zinc-400 transition-all shadow-sm">
-                <a href="${p.lienFiche}" class="block aspect-square bg-zinc-100 overflow-hidden relative">
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-zinc-800 shadow-sm z-10">Stock France 🇫🇷</div>
-                    <img src="${p.image}" alt="${p.nom}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
-                </a>
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <a href="${p.lienFiche}"><h3 class="font-bold text-lg text-zinc-950 mb-2 hover:text-brand-600 transition-colors">${p.nom}</h3></a>
-                        <p class="text-sm text-zinc-500 mb-6 line-clamp-2">${p.desc}</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
-                        <div>
-                            <span class="text-xl font-black text-zinc-950">${p.prix.toFixed(2)} €</span>
-                            <span class="text-xs text-zinc-400 line-through ml-2">${p.ancienPrix.toFixed(2)} €</span>
-                        </div>
-                        <a href="${p.lienFiche}" class="bg-zinc-950 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-md">
-                            Voir le produit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-        function openCart() {
-            document.getElementById('cart-overlay').classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('cart-overlay').classList.remove('opacity-0');
-                document.getElementById('cart-panel').classList.remove('translate-x-full');
-            }, 10);
-        }
-        function closeCart() {
-            document.getElementById('cart-overlay').classList.add('opacity-0');
-            document.getElementById('cart-panel').classList.add('translate-x-full');
-            setTimeout(() => { document.getElementById('cart-overlay').classList.add('hidden'); }, 300);
-        }
-    </script>
 </body>
 </html>
