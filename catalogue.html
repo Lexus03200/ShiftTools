@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue | ShiftTools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brand: { 600: '#2563eb' } } } } }
+    </script>
+</head>
+<body class="bg-zinc-50 text-zinc-900 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky w-full z-40 top-0 bg-white/90 backdrop-blur-md border-b border-zinc-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tight text-zinc-950">Shift<span class="text-brand-600">Tools.</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-zinc-600">
+                <a href="index.html" class="hover:text-zinc-950">Accueil</a>
+                <a href="catalogue.html" class="text-zinc-950">Catalogue</a>
+                <a href="login.html" class="hover:text-zinc-950">Espace Client</a>
+            </div>
+            <a href="panier.html" class="bg-zinc-100 px-5 py-2.5 rounded-full text-sm font-semibold">Panier</a>
+        </div>
+    </nav>
+
+    <!-- En-tête Catalogue & Filtres de Catégories -->
+    <header class="pt-16 pb-10 max-w-7xl mx-auto px-6">
+        <h1 class="text-4xl font-black tracking-tight text-zinc-950 mb-6">Catalogue des Outils</h1>
+        
+        <!-- Boutons de Catégories -->
+        <div class="flex flex-wrap gap-3">
+            <button onclick="filtrer('tous')" class="cat-btn active bg-zinc-950 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Tous</button>
+            <button onclick="filtrer('diagnostic')" class="cat-btn bg-white border border-zinc-200 text-zinc-700 hover:border-zinc-400 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Diagnostic</button>
+            <button onclick="filtrer('electricite')" class="cat-btn bg-white border border-zinc-200 text-zinc-700 hover:border-zinc-400 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Électricité & Faisceaux</button>
+            <button onclick="filtrer('entretien')" class="cat-btn bg-white border border-zinc-200 text-zinc-700 hover:border-zinc-400 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Entretien & Fluides</button>
+        </div>
+    </header>
+
+    <!-- Grille Produits -->
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Injecté par JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        const produits = [
+            { id: 1, nom: "Scanner OBD2 Professionnel", cat: "diagnostic", prix: 34.90, desc: "Lecture des calculateurs, effacement des défauts.", image: "https://via.placeholder.com/600/f4f4f5/71717a?text=OBD2+Pro" },
+            { id: 2, nom: "Kit d'Extraction de Cosses", cat: "electricite", prix: 24.90, desc: "Jeu de clés en acier fin pour libérer les pins.", image: "https://via.placeholder.com/600/f4f4f5/71717a?text=Extracteur+Cosses" },
+            { id: 3, nom: "Ruban Tissu Haute Température", cat: "electricite", prix: 14.90, desc: "Finition d'origine constructeur pour faisceau.", image: "https://via.placeholder.com/600/f4f4f5/71717a?text=Ruban+Tissu" },
+            { id: 4, nom: "Stylo Testeur de Liquide de Frein", cat: "entretien", prix: 19.90, desc: "Vérification instantanée du taux d'humidité.", image: "https://via.placeholder.com/600/f4f4f5/71717a?text=Testeur+Frein" }
+        ];
+
+        function afficherProduits(liste) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = liste.map(p => `
+                <div class="bg-white rounded-3xl border border-zinc-200 overflow-hidden flex flex-col justify-between group hover:border-zinc-400 transition-all shadow-sm">
+                    <a href="produit.html?id=${p.id}" class="block aspect-square bg-zinc-100 overflow-hidden relative">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-zinc-800 shadow-sm">Stock France 🇫🇷</div>
+                        <img src="${p.image}" alt="${p.nom}" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <a href="produit.html?id=${p.id}"><h3 class="font-bold text-lg text-zinc-950 mb-2 hover:text-brand-600">${p.nom}</h3></a>
+                            <p class="text-sm text-zinc-500 mb-6">${p.desc}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
+                            <span class="text-xl font-black text-zinc-950">${p.prix.toFixed(2)} €</span>
+                            <a href="produit.html?id=${p.id}" class="bg-zinc-950 hover:bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">Voir</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filtrer(categorie) {
+            if(categorie === 'tous') {
+                afficherProduits(produits);
+            } else {
+                afficherProduits(produits.filter(p => p.cat === categorie));
+            }
+        }
+
+        afficherProduits(produits);
+    </script>
+</body>
+</html>
