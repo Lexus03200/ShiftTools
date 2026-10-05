@@ -13,9 +13,12 @@
 <body class="bg-white text-zinc-900 font-sans antialiased">
 
     <nav class="border-b border-zinc-100 bg-white sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-black tracking-tight">Shift<span class="text-brand-600">Tools.</span></a>
-            <a href="index.html" class="text-sm font-semibold text-zinc-600 hover:text-zinc-950">← Retour au catalogue</a>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tight">Shift<span class="text-brand-600">Tools.</span></a>
+            <div class="flex gap-4">
+                <a href="catalogue.html" class="text-sm font-semibold text-zinc-600 hover:text-zinc-950 flex items-center">← Retour au catalogue</a>
+                <a href="panier.html" class="bg-zinc-100 px-5 py-2 rounded-full text-sm font-semibold">Panier</a>
+            </div>
         </div>
     </nav>
 
@@ -25,7 +28,7 @@
         </div>
 
         <div class="pt-4">
-            <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase">En Stock • Expédié de France</span>
+            <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase">En Stock • Expédié de France 🇫🇷</span>
             <h1 id="prod-titre" class="text-3xl md:text-5xl font-black tracking-tight mt-4 mb-4">Chargement...</h1>
             <p id="prod-desc" class="text-lg text-zinc-600 mb-8 font-medium"></p>
             
@@ -33,24 +36,23 @@
                 <span id="prod-prix" class="text-4xl font-black">0,00 €</span>
             </div>
 
-            <!-- Bouton d'achat vers Stripe -->
-            <a id="stripe-btn" href="#" class="block w-full text-center bg-zinc-950 hover:bg-zinc-800 text-white font-bold text-lg py-5 rounded-2xl transition-all shadow-xl shadow-zinc-900/20 mb-6">
-                Commander maintenant
-            </a>
-            
+            <button onclick="ajouterAuPanier()" class="w-full bg-zinc-950 hover:bg-zinc-800 text-white font-bold text-lg py-5 rounded-2xl transition-all shadow-xl shadow-zinc-900/20 mb-6">
+                Ajouter au panier
+            </button>
+
             <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100 text-xs text-zinc-500 font-medium space-y-2">
                 <p>✓ Garantie constructeur 2 ans</p>
-                <p>✓ Paiement chiffré par Stripe (CB, Apple Pay)</p>
+                <p>✓ Expédié sous 24h depuis nos locaux</p>
             </div>
         </div>
     </main>
 
     <script>
-        // Base de données miroir pour la fiche produit
         const catalogue = {
-            1: { nom: "Scanner OBD2 Professionnel", desc: "Lecture des calculateurs, effacement des défauts et données en temps réel.", prix: "34,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=OBD2+Pro", lienStripe: "TON_LIEN_STRIPE_PRODUIT_1" },
-            2: { nom: "Kit d'Extraction de Cosses Faisceau", desc: "Jeu de clés en acier fin pour libérer proprement les pins et connecteurs.", prix: "24,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=Extracteur+Cosses", lienStripe: "TON_LIEN_STRIPE_PRODUIT_2" },
-            3: { nom: "Ruban Tissu Adhésif Haute Température", desc: "Finition d'origine constructeur pour la réfection des faisceaux moteur.", prix: "14,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=Ruban+Tissu", lienStripe: "TON_LIEN_STRIPE_PRODUIT_3" }
+            1: { nom: "Scanner OBD2 Professionnel", desc: "Lecture des calculateurs, effacement des défauts et données en temps réel.", prix: "34,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=OBD2+Pro" },
+            2: { nom: "Kit d'Extraction de Cosses", desc: "Jeu de clés en acier fin pour libérer proprement les pins et connecteurs.", prix: "24,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=Extracteur+Cosses" },
+            3: { nom: "Ruban Tissu Haute Température", desc: "Finition d'origine constructeur pour la réfection des faisceaux moteur.", prix: "14,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=Ruban+Tissu" },
+            4: { nom: "Stylo Testeur de Liquide de Frein", desc: "Vérification instantanée du taux d'humidité du liquide de frein.", prix: "19,90 €", image: "https://via.placeholder.com/800/f4f4f5/71717a?text=Testeur+Frein" }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -61,7 +63,11 @@
         document.getElementById('prod-desc').innerText = produit.desc;
         document.getElementById('prod-prix').innerText = produit.prix;
         document.getElementById('prod-img').src = produit.image;
-        document.getElementById('stripe-btn').href = produit.lienStripe;
+
+        function ajouterAuPanier() {
+            alert("Produit ajouté au panier avec succès !");
+            window.location.href = "panier.html";
+        }
     </script>
 </body>
 </html>
