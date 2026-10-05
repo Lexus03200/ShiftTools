@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner OBD2 Pro | PRODIAG.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brand: { 600: '#1d4ed8' } } } } }
+    </script>
+</head>
+<body class="bg-white text-zinc-900 font-sans antialiased">
+
+    <!-- Navbar simple pour la page produit -->
+    <nav class="border-b border-zinc-100 bg-white sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-black tracking-tight">PRO<span class="text-brand-600">DIAG.</span></a>
+            <button onclick="openCart()" class="flex items-center gap-2 bg-zinc-100 hover:bg-zinc-200 px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                Panier <span id="cart-count" class="bg-zinc-950 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-20 grid lg:grid-cols-2 gap-16 items-start">
+        
+        <!-- Galerie Photo -->
+        <div class="space-y-4 sticky top-24">
+            <!-- IMAGE PRINCIPALE -->
+            <div class="bg-zinc-100 rounded-3xl aspect-square flex items-center justify-center border border-zinc-200 text-zinc-400 font-bold overflow-hidden shadow-inner">
+                [Photo Produit Branché]
+            </div>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="bg-zinc-100 rounded-xl aspect-square border-2 border-brand-600"></div>
+                <div class="bg-zinc-100 rounded-xl aspect-square opacity-60"></div>
+            </div>
+        </div>
+
+        <!-- Informations et Achat -->
+        <div class="pt-4">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">En Stock</span>
+                <span class="text-zinc-500 text-sm font-semibold">Expédition France</span>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-4 leading-tight">Scanner OBD2 <br>Professionnel</h1>
+            <p class="text-lg text-zinc-600 mb-8 font-medium">Lecture des trames CAN bus et K-Line. Accès direct aux calculateurs, effacement des codes défauts et lecture en direct des paramètres moteur.</p>
+            
+            <div class="flex items-end gap-4 mb-8 pb-8 border-b border-zinc-100">
+                <span class="text-4xl font-black">34,90 €</span>
+                <span class="text-xl text-zinc-400 line-through mb-1">59,90 €</span>
+            </div>
+
+            <ul class="space-y-4 mb-10 text-sm font-semibold text-zinc-700">
+                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Compatible VAG, PSA, BMW, Mercedes (Protocole Européen)</li>
+                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Zéro abonnement : Logiciel inclus à vie</li>
+                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Matériel garanti 2 ans</li>
+            </ul>
+
+            <!-- Bouton Ajouter au Panier -->
+            <button onclick="addToCart()" class="w-full bg-zinc-950 hover:bg-zinc-800 text-white font-bold text-lg py-5 rounded-2xl transition-all shadow-xl shadow-zinc-900/20 mb-6 transform hover:scale-[1.02]">
+                Ajouter au panier
+            </button>
+
+            <!-- Réassurance -->
+            <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100 flex flex-col items-center justify-center gap-3">
+                <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Paiement 100% Sécurisé</span>
+                <div class="flex gap-4">
+                    <span class="font-bold text-zinc-700">CB</span>
+                    <span class="font-bold text-zinc-700">Apple Pay</span>
+                    <span class="font-bold text-zinc-700">Google Pay</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Inclusion du Panier Latéral (Identique à l'accueil) -->
+    <div id="cart-overlay" class="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" onclick="closeCart()"></div>
+    <div id="cart-panel" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-6 border-b border-zinc-100 flex justify-between items-center bg-zinc-50">
+            <h2 class="text-xl font-black tracking-tight">Votre Panier</h2>
+            <button onclick="closeCart()" class="p-2 bg-white border border-zinc-200 hover:bg-zinc-100 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        </div>
+        <div class="flex-1 p-6 overflow-y-auto bg-white" id="cart-items">
+            <div id="empty-cart" class="text-zinc-500 text-center mt-12 font-medium">Votre panier est vide.</div>
+            <div id="cart-item-1" class="hidden flex gap-4 p-4 border border-zinc-100 rounded-2xl bg-zinc-50">
+                <div class="w-20 h-20 bg-zinc-200 rounded-xl flex-shrink-0"></div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-zinc-950">Scanner OBD2 Pro</h3>
+                    <p class="text-xs text-zinc-500 mb-2">Interface + Logiciel Inclus</p>
+                    <div class="flex justify-between items-center"><span class="font-black text-brand-600">34,90 €</span><span class="text-xs font-bold text-zinc-400">Qté: 1</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="p-6 border-t border-zinc-100 bg-zinc-50">
+            <div class="flex justify-between mb-4 font-bold text-zinc-950"><span>Total</span><span id="cart-total">0,00 €</span></div>
+            <a href="TON_LIEN_STRIPE" id="checkout-btn" class="block w-full bg-zinc-950 text-white text-center py-4 rounded-xl font-bold hover:bg-zinc-800 transition-colors opacity-50 pointer-events-none">Valider la commande</a>
+        </div>
+    </div>
+
+    <script>
+        function openCart() {
+            document.getElementById('cart-overlay').classList.remove('hidden');
+            setTimeout(() => { document.getElementById('cart-overlay').classList.remove('opacity-0'); document.getElementById('cart-panel').classList.remove('translate-x-full'); }, 10);
+        }
+        function closeCart() {
+            document.getElementById('cart-overlay').classList.add('opacity-0'); document.getElementById('cart-panel').classList.add('translate-x-full');
+            setTimeout(() => { document.getElementById('cart-overlay').classList.add('hidden'); }, 300);
+        }
+        function addToCart() {
+            document.getElementById('empty-cart').classList.add('hidden');
+            document.getElementById('cart-item-1').classList.remove('hidden');
+            document.getElementById('cart-count').innerText = "1";
+            document.getElementById('cart-total').innerText = "34,90 €";
+            const btn = document.getElementById('checkout-btn');
+            btn.classList.remove('opacity-50', 'pointer-events-none');
+            openCart();
+        }
+    </script>
+</body>
+</html>
